@@ -42,6 +42,20 @@ The query identifies a high number of unique failed logon attempts originating f
 
 ![Detection Query Results](screenshots/03-detection-query.png)
 
+## Alert Configuration
+
+A scheduled Splunk alert was created to detect password spraying activity when more than 10 unique failed network logons (Event ID 4625) occur from a single workstation.
+
+```spl
+index=wineventlog host=SOC-SRV01 EventCode=4625 Logon_Type=3
+| stats dc(Account_Name) as unique_users by Workstation_Name
+| where unique_users > 10
+```
+
+![Alert Logic](screenshots/04-alert-logic.png)
+
+![Alert Configuration](screenshots/05-alert-configuration.png)
+
 
 
 ## Detection Strategy
