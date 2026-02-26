@@ -13,6 +13,17 @@ This project simulates a password spraying attack against an Active Directory do
 ## Attack Simulation
 Simulated password spraying using repeated failed SMB authentication attempts.
 
+## Attack Execution
+
+The following command was used to simulate a password spraying attack against the Domain Controller:
+
+```cmd
+for /L %i in (1,1,15) do net use \\SOC-SRV01\IPC$ /user:SOCLAB\sprayuser%i WrongPass123```
+
+<img width="1010" height="516" alt="01-attack-execution" src="https://github.com/user-attachments/assets/b298261f-e952-41fe-9a88-9ac245cdf442" />
+
+
+
 ## Detection Strategy
 Detected abnormal volume of failed network logons across multiple user accounts from a single workstation.
 
