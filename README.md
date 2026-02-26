@@ -29,6 +29,19 @@ The simulated password spray generated multiple failed network authentication ev
 
 ![Failed Logon Events](screenshots/02-4625-events.png)
 
+## Detection Query
+
+To detect password spraying behavior, distinct failed usernames were counted per workstation:
+
+```spl
+index=wineventlog host=SOC-SRV01 EventCode=4625 Logon_Type=3
+| stats dc(Account_Name) as unique_users by Workstation_Name
+```
+
+The query identifies a high number of unique failed logon attempts originating from a single workstation.
+
+![Detection Query Results](screenshots/03-detection-query.png)
+
 
 
 ## Detection Strategy
