@@ -18,7 +18,7 @@ Simulated password spraying using repeated failed SMB authentication attempts.
 The following command was used to simulate a password spraying attack against the Domain Controller:
 
 ```cmd
-for /L %i in (1,1,15) do net use \\SOC-SRV01\IPC$ /user:SOCLAB\sprayuser%i WrongPass123'''
+for /L %i in (1,1,15) do net use \\SOC-SRV01\IPC$ /user:SOCLAB\sprayuser%i WrongPass123```
 
 
 
