@@ -21,7 +21,8 @@ The following command was used to simulate a password spraying attack against th
 for /L %i in (1,1,15) do net use \\SOC-SRV01\IPC$ /user:SOCLAB\sprayuser%i WrongPass123
 
 
- Detection Strategy
+
+## Detection Strategy
 Detected abnormal volume of failed network logons across multiple user accounts from a single workstation.
 
 ## MITRE ATT&CK Mapping
