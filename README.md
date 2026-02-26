@@ -23,6 +23,11 @@ for /L %i in (1,1,15) do net use \\SOC-SRV01\IPC$ /user:SOCLAB\sprayuser%i Wrong
 
 ![Attack Execution](screenshots/01-attack-execution.png)
 
+## Failed Logon Events (Event ID 4625)
+
+The simulated password spray generated multiple failed network authentication events (Event ID 4625) on the Domain Controller.
+
+![Failed Logon Events](screenshots/02-4625-events.png)
 
 
 
