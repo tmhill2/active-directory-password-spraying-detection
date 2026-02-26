@@ -56,13 +56,21 @@ index=wineventlog host=SOC-SRV01 EventCode=4625 Logon_Type=3
 
 ![Alert Configuration](screenshots/05-alert-configuration.png)
 
+## Incident Summary
+
+A simulated password spraying attack was conducted against the Active Directory domain using repeated SMB authentication attempts.
+
+The attack generated multiple failed logon events (Event ID 4625) on the Domain Controller. Splunk successfully ingested the logs via the Universal Forwarder.
+
+Detection logic was developed to identify abnormal authentication behavior by counting distinct failed usernames per workstation. When the threshold exceeded 10 unique failed logons within the defined time window, a scheduled alert triggered.
+
+This project demonstrates:
+- Active Directory attack simulation
+- Windows Event Log analysis
+- SPL detection engineering
+- Threshold-based alerting
+- MITRE ATT&CK mapping (T1110.003)
 
 
-## Detection Strategy
-Detected abnormal volume of failed network logons across multiple user accounts from a single workstation.
 
-## MITRE ATT&CK Mapping
-T1110.003 – Password Spraying
 
----
-Screenshots and detection details below.
